@@ -1,0 +1,14 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="error-container">
+    <h1 class="error-status">Error: <%= err.statusCode || 500 %></h1>
+    <div class="alert alert-danger d-flex align-items-center" role="alert">
+        <div class="error-message">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            <%= err.message %>
+        </div>
+      </div>
+    <div class="error-actions">
+        <a href="javascript:history.back()" class="error-btn">🔙 Go Back</a>
+    </div>
+</div>

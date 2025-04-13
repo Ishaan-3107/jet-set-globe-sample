@@ -1,0 +1,257 @@
+html, body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 400;
+    min-height: 100vh; /* Use min-height instead of height */
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Make the main content area take the remaining space */
+.container {
+    flex: 1;
+}
+
+.navbar {
+    background-color: white;
+    color: #ff5a5f;
+    height: 5rem;
+    position: sticky;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    flex-shrink: 0; /* Prevent shrinking in flex container */
+}
+
+.navbar-brand img {
+    margin-top: -10px;
+    height: 2.5rem;
+    width: 12.5rem;
+    transition: filter 0.2s ease, transform 0.3s ease;
+}
+
+.navbar-brand:hover img {
+    filter: brightness(0) saturate(100%) invert(31%) sepia(86%) saturate(634%) hue-rotate(329deg) brightness(96%) contrast(97%); /* To change color from black to #ff5a5f */
+    transform: scale(1.03);
+}
+
+.nav-link {
+    color: black;
+    font-weight: 500;
+    transition: all 0.1s ease-in;
+}
+
+.nav-link:hover {
+    color: #ff5a5f;
+    transform: scale(1.03);
+}
+
+h3 {
+    margin: 1.5rem 0 1.5rem 0;
+}
+
+footer {
+    background-color: #ebebeb;
+    padding: 1rem 0;
+    border-top: 1px solid #d2d2d2;
+    margin-top: auto;
+    width: 100% !important;
+    height: 10.6rem;
+}
+
+.f-info {
+    text-align: center;
+    height: 8rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.f-info-socials, .f-brand-name, .f-info-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.f-info-links a {
+    position: relative;
+    text-decoration: none;
+    font-weight: 500;
+    color: black;
+    transition: color 0.3s;
+    padding: 0.5rem 1rem;  
+}
+
+.f-info-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: black;
+    transition: width 0.3s;
+}
+
+.f-info-links a:hover::after {
+    width: 100%;
+}
+
+/* .f-info-links a{
+    text-decoration: none;
+    color: black;
+}
+
+.f-info-links a:hover {
+    text-decoration: underline;
+} */
+
+.fa-brands {
+    font-size: 2rem;
+    color: black;
+    margin-right: 1rem;
+    transition: transform 0.06s ease-in;
+}
+
+.fa-brands:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+/* Cards */
+.card {
+    border: none;
+    padding: 0;
+    margin-bottom: 1rem;
+}
+
+.card-img-top {
+    border-radius: 1rem;
+    width: 100%;
+    object-fit: cover;
+}
+
+.card-body {
+    margin-top: 0.2rem;
+    padding: 0;
+}
+
+.listing-link {
+    width: 25rem;
+    padding: 0;
+    text-decoration: none;
+    margin-right: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Card Effect */
+.card-img-overlay {
+    opacity: 0;
+    width: 25rem;
+    height: auto;
+}
+
+.card-img-overlay:hover {
+    opacity: 0.2;
+    background-color: white;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* New page */
+.form-label {
+    color: black;
+    font-weight: 500;
+}
+
+.add-btn {
+    border: none;
+}
+
+.add-btn:hover {
+    background-color: #ff5a5f;
+}
+
+/* Show Page */
+.show-img {
+    height: 40vh;
+}
+
+.edit-btn {
+    background-color: #ff5a5f;
+    border: none;
+    height: 2.3rem;
+    width: 3.5rem;
+    margin-right: 2rem;
+}
+
+.submit-btn {
+    background-color: #ff5a5f;
+    border: none;
+    height: 2.3rem;
+    width: 5rem;
+    margin: 1rem 0 0 0;
+}
+
+.btns {
+    display: flex;
+    justify-content: center;
+}
+
+/* Error Page */
+.error-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.error-status {
+    font-size: 6rem;
+    font-weight: bold;
+    color: #ff5a5f;
+    margin: 3rem 0 2rem 0;
+}
+
+.error-message {
+    display: flex;
+    align-items: center; /* Aligns icon and text properly */
+    justify-content: center; /* Centers horizontally */
+    gap: 0.5rem; /* Adds space between icon and text */
+    font-size: 1.2rem;
+}
+
+.error-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.error-btn {
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: 0.8rem 1.5rem;
+    margin-top: 2rem;
+    border: none;
+    background-color: black;
+    color: #ffffff;
+    border-radius: 10px;
+    transition: all 0.2s ease-in-out;
+}
+
+.error-btn:hover {
+    background-color: #ff5a5f;
+    color: white;
+}
+
+
