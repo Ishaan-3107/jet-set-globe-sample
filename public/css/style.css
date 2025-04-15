@@ -56,7 +56,6 @@ footer {
     padding: 1rem 0;
     border-top: 1px solid #d2d2d2;
     margin-top: auto;
-    width: 100% !important;
     height: 10.6rem;
 }
 
@@ -122,7 +121,7 @@ footer {
 }
 
 /* Cards */
-.card {
+.listing-card {
     border: none;
     padding: 0;
     margin-bottom: 1rem;
@@ -255,3 +254,26 @@ footer {
 }
 
 
+/* REVIEWS */
+.star-custom {
+    color: #ff5a5f;
+}
+
+.reviews {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.card-body {
+    flex-grow: 1;
+}
+  

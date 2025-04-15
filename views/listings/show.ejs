@@ -6,7 +6,7 @@
     <div class="col-8 offset-1">
       <h3 style="margin-left: 3rem"><%= listing.title %></h3>
     </div>
-    <div class="card show-card col-6">
+    <div class="card listing-card show-card col-6">
       <img class="card-img-top show-img" src="<%= listing.image %>" alt="Listing Image"> <br>
       <div class="card-body">
         <p class="card-text">
@@ -18,7 +18,7 @@
       </div>
     </div>
         
-  <div class="btns">
+  <div class="btns mb-3">
     <a href="/listings/<%= listing._id %>/edit" class="btn btn-dark edit-btn">Edit</a>
     <br><br>
 
@@ -45,17 +45,30 @@
     </form>
     
     <br><br>
-    <div class="reviews">
-      <h2>All Reviews</h2>
-      <ul>
-        <% for(review of listing.reviews) { %>
-          <li><%= review.comment %>, <%= review.rating %></li>
-        <% } %>
-      </ul>
+    <p><b>All Reviews</b></p>
+    <div class="reviews row">
+      <% for (review of listing.reviews) { %>
+        <div class="col-4 mb-3 d-flex">
+          <div class="card flex-fill">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">John Doe</h5>
+              <p class="card-text flex-grow-1"><%= review.comment %></p>
+              <p class="card-text"> 
+                <% for (let i = 0; i < review.rating; i++) { %>
+                  <i class="fas fa-star star-custom"></i>
+                <% } %>
+                <% for (let i = review.rating; i < 5; i++) { %>
+                  <i class="far fa-star star-custom"></i>
+                <% } %>
+              </p>
+            </div>
+            <form method="POST" action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE">
+              <button class="btn btn-sm btn-dark mt-3">Delete</button>
+            </form>
+          </div>
+        </div>
+      <% } %>
     </div>
-
-  </div>
-
-  
+    
 </body>
 
