@@ -4,11 +4,14 @@ const path = require("path");
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
 const ExpressError = require("./utils/ExpressError.js"); //To throw a custom Express error
+const session = require("express-session");
+const flash = require("connect-flash");
 
 const listings = require("./routes/listing.js");
 const reviews = require("./routes/review.js");
 
 const app = express();
+exports.app = app;
 
 app.listen(8080, () => {
     console.log("Server is listening to port 8080!");
@@ -41,6 +44,24 @@ app.use(express.static(path.join(__dirname, "/public")));
 
 //EJS-Mate: To use reusable components in other webpages, such as navbar, footer etc. No need to write repeated code for every web page
 app.engine("ejs", ejsMate);
+
+const sessionOptions = {
+    secret: "mysupersecretcode", 
+    resave: false, 
+    saveUninitialized: true, 
+    cookie: {
+        expires: Date.now() + 7 * 24 * 60 * 60 * 1000, //Expires after exactly one week
+        maxAge: 7 * 24 * 60 * 60 * 1000,
+        httpOnly: true
+    }
+};
+app.use(session(sessionOptions));
+app.use(flash());
+
+app.use((req, res, next) => { //Middleware for flash messages
+    res.locals.successMsg = req.flash("success");
+    next();
+})
 
 app.use("/listings", listings);
 app.use("/listings/:id/reviews", reviews);

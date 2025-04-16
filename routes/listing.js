@@ -36,6 +36,7 @@ router.post("/", validateListing, wrapAsync(async (req, res, next) => {
 
     let newListing = new Listing(req.body.listing); //Create a new Mongoose document
     await newListing.save();
+    req.flash("success", "New Listing Created!");
     res.redirect("/listings");
     // catch(err) {
     //     // console.log(err);
