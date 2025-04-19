@@ -73,6 +73,7 @@ passport.deserializeUser(User.deserializeUser());
 app.use((req, res, next) => { //Middleware for flash messages
     res.locals.success = req.flash("success");
     res.locals.error = req.flash("error");
+    res.locals.currUser = req.user; //req.user stores necessary info related to current user's session
     next();
 })
 
@@ -82,16 +83,6 @@ app.use("/", userRouter);
 //Routes
 app.get("/", (req, res) => {
     res.send("This is the root!");
-})
-
-app.get("/demouser", async (req, res) => {
-    let fakeUser = new User({
-        email: "student@gmail.com",
-        username: "some-student"
-    })
-
-    let registeredUser = await User.register(fakeUser, "helloworld");
-    res.send(registeredUser);
 })
 
 app.all("*", (res, req, next) => {

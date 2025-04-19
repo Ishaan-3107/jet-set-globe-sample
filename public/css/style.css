@@ -200,17 +200,31 @@ footer {
     margin: 1rem 0 0 0;
 }
 
-.signup-btn:hover {
-    background-color: rgb(52, 52, 52);
-    color: white;
-}
-
 .signup-btn {
     background-color: #ff5a5f;
+    color: white;
     border: none;
     height: 2.3rem;
     width: 5.5rem;
+    font-weight: 500;
     margin-right: 2rem;
+}
+
+.signup-btn:hover {
+    background-color: rgb(52, 52, 52);
+    color:white;
+}
+
+.btn-outline-custom {
+    color: #ff5a5f;
+    border: 1px solid #ff5a5f;
+    background-color: transparent;
+    transition: background-color 0.2s, color 0.2s;
+  }
+  
+.btn-outline-custom:hover {
+    background-color: rgb(52, 52, 52);
+    color: white;
 }
 
 .btns {
